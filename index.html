@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search-Bar-Engine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="container-field">
+        <div class="header">
+            <h1>Search <span>Bar</span> Engine</h1>
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="Search books ." id="input-field">
+            <img src="search-icon.png" id="search-icon">
+        </div>
+    </div>
+    <div class="main-content">
+        <ul id="list-container">
+            <li>Jane Eyre</li>
+            <li>The Great Gatsby</li>
+            <li>Wuthering Height</li>
+            <li>The Adventure of Huckleberry Finn</li>
+            <li>Moby-Dick</li>
+            <li>To Kill a Mockingbird</li>
+            <li>Think And Grow Rich</li>
+            <li>A Random Walk Down Wall Street</li>
+            <li>The Richest Man in Babylon</li>
+            <li>Free to Choose</li>
+            <li>Who Really Cares</li>
+            <li>Science of Getting Rich</li>
+            <li>Creating Money</li>
+        </ul>
+    </div>
+
+  </div>
+  <script>
+
+    function search_fun(){
+
+        let input=document.getElementById("input-field");
+
+        input.addEventListener("input",(event)=>{
+            let inputValue=event.target.value.toLowerCase();
+
+            let listContain=document.getElementById("list-container");
+            let listArr=listContain.children;
+
+            for(const item of listArr){
+                if(!item.textContent.toLowerCase().includes(inputValue)){
+                    item.style.display="none"
+                }
+                else{
+                    item.style.display=""
+                }
+            }
+        })
+
+    }
+    search_fun();
+  </script>
+</body>
+</html>
